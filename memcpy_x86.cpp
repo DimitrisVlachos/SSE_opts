@@ -84,6 +84,9 @@ sse_memcpy_div22_aligned_cpy_body:
 		add edi,128
 		add esi,128
 		prefetchnta [esi + 512]
+		prefetchnta [esi + 512 + 32]
+		prefetchnta [esi + 512 + 64]
+		prefetchnta [esi + 512 + 96]
 		dec eax
 		jnz sse_memcpy_div22_aligned_cpy_body
 		jmp sse_memcpy_div22_aligned_small
@@ -112,6 +115,9 @@ sse_memcpy_div22_aligned_cpy_unaligned_src_body:
 		add edi,128
 		add esi,128
 		prefetchnta [esi + 512]
+		prefetchnta [esi + 512 + 32]
+		prefetchnta [esi + 512 + 64]
+		prefetchnta [esi + 512 + 96]
 		dec eax
 		jnz sse_memcpy_div22_aligned_cpy_unaligned_src_body
 sse_memcpy_div22_aligned_small:
